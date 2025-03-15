@@ -109,7 +109,7 @@ export default function FlashcardView() {
             />
           </Flex>
 
-          <HStack spacing={4}>
+          <HStack spacing={4} w="full" justify="space-evenly">
             <Button leftIcon={<FiShuffle />} onClick={handleShuffle}>
               Shuffle
             </Button>
