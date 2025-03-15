@@ -1,4 +1,4 @@
-import { Box, Container, VStack, Text, Button, IconButton, Flex, Icon, HStack } from "@chakra-ui/react";
+import { Box, Container, VStack, Text, Button, Flex, Icon, HStack } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FiStar, FiChevronLeft, FiChevronRight, FiMaximize, FiShuffle } from "react-icons/fi";
@@ -57,9 +57,8 @@ export default function FlashcardView() {
         <VStack spacing={8}>
           <Flex w="full" justify="space-between" align="center">
             <Text fontSize="2xl">Flashcards</Text>
-            <IconButton
-              aria-label="Star card"
-              icon={<FiStar />}
+            <Icon
+              as={FiStar}
               variant="ghost"
             />
           </Flex>
