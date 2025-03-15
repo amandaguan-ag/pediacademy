@@ -6,6 +6,7 @@ import ModuleOverview from "./components/ModuleOverview";
 import { childModules } from './data/modules';
 import LessonView from "./components/LessonView";
 import MessagePage from "./components/MessagePage";
+import FlashcardView from "./components/FlashcardView";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/module/:moduleId" element={<ModuleOverview />} />
             <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonView />} />
             <Route path="/module/:moduleId/lesson/:lessonId/complete" element={<MessagePage />} />
+            <Route path="/module/:moduleId/lesson/:lessonId/flashcards" element={<FlashcardView />} />
           </Routes>
         </Box>
       </Box>

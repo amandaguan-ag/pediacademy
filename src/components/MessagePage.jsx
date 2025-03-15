@@ -3,10 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function MessagePage() {
   const navigate = useNavigate();
-  const { moduleId } = useParams();
+  const { moduleId, lessonId } = useParams();
 
   const handleContinue = () => {
-    navigate(`/module/${moduleId}`);
+    navigate(`/module/${moduleId}/lesson/${lessonId}/flashcards`);
   };
 
   return (
