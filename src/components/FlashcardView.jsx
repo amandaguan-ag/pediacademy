@@ -60,18 +60,6 @@ export default function FlashcardView() {
           </Flex>
 
           <Flex w="full" align="center" gap={4}>
-            <Icon
-              as={FiChevronLeft}
-              onClick={handlePrevious}
-              cursor={currentIndex === 0 ? "not-allowed" : "pointer"}
-              opacity={currentIndex === 0 ? 0.4 : 1}
-              boxSize={8}
-              color="white"
-              bg="black"
-              p={1}
-              borderRadius="md"
-              _hover={{ bg: "gray.800" }}
-            />
             
             <Box
               flex="1"
@@ -94,25 +82,38 @@ export default function FlashcardView() {
                 cursor="pointer"
                 _hover={{ color: "gray.700" }}
               />
-              <Flex h="full" align="center" justify="center">
+              <Flex h="full" align="center" justify="space-between" px={8}>
+                <Icon
+                  as={FiChevronLeft}
+                  onClick={handlePrevious}
+                  cursor={currentIndex === 0 ? "not-allowed" : "pointer"}
+                  opacity={currentIndex === 0 ? 0.4 : 1}
+                  boxSize={8}
+                  color="white"
+                  bg="black"
+                  p={1}
+                  borderRadius="md"
+                  _hover={{ bg: "gray.800" }}
+                />
                 <Text fontSize="xl" textAlign="center">
                   {isFlipped ? cards[currentIndex]?.definition : cards[currentIndex]?.term}
                 </Text>
+                <Icon
+                  as={FiChevronRight}
+                  onClick={handleNext}
+                  cursor={currentIndex === totalCards - 1 ? "not-allowed" : "pointer"}
+                  opacity={currentIndex === totalCards - 1 ? 0.4 : 1}
+                  boxSize={8}
+                  color="white"
+                  bg="black"
+                  p={1}
+                  borderRadius="md"
+                  _hover={{ bg: "gray.800" }}
+                />
               </Flex>
             </Box>
 
-            <Icon
-              as={FiChevronRight}
-              onClick={handleNext}
-              cursor={currentIndex === totalCards - 1 ? "not-allowed" : "pointer"}
-              opacity={currentIndex === totalCards - 1 ? 0.4 : 1}
-              boxSize={8}
-              color="white"
-              bg="black"
-              p={1}
-              borderRadius="md"
-              _hover={{ bg: "gray.800" }}
-            />
+
           </Flex>
 
           <HStack spacing={4} w="full" justify="space-evenly">
