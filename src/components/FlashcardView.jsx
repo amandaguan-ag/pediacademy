@@ -95,7 +95,19 @@ export default function FlashcardView() {
                   borderRadius="md"
                   _hover={{ bg: "gray.800" }}
                 />
-                <Text fontSize="xl" textAlign="center">
+                <Text 
+                  fontSize="xl" 
+                  textAlign="center"
+                  bg="gray.100"
+                  p={8}
+                  borderRadius="md"
+                  flex="1"
+                  mx={8}
+                  h="250px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
                   {isFlipped ? cards[currentIndex]?.definition : cards[currentIndex]?.term}
                 </Text>
                 <Icon
@@ -116,12 +128,12 @@ export default function FlashcardView() {
 
           </Flex>
 
-          <HStack spacing={4} w="full" justify="space-evenly">
-            <Button leftIcon={<FiShuffle />} onClick={handleShuffle}>
+          <HStack spacing={4} w="full" justify="space-between">
+            <Button leftIcon={<FiShuffle />} onClick={handleShuffle} variant="ghost">
               Shuffle
             </Button>
             <Text>{`${currentIndex + 1}/${totalCards}`}</Text>
-            <Button rightIcon={<FiMaximize />} onClick={handleFullscreen}>
+            <Button rightIcon={<FiMaximize />} onClick={handleFullscreen} variant="ghost">
               Fullscreen
             </Button>
           </HStack>
