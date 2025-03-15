@@ -27,9 +27,9 @@ function App() {
           <Box mb={8}>
             <Heading size="lg" mb={4}>Parent training</Heading>
             <SimpleGrid columns={3} spacing={4} gap="40px">
-              <ModuleCard title="Module" />
-              <ModuleCard title="Module" />
-              <ModuleCard title="Module" />
+              <ModuleCard title="Placeholder" />
+              <ModuleCard title="Placeholder" />
+              <ModuleCard title="Placeholder" />
             </SimpleGrid>
           </Box>
 
@@ -37,9 +37,12 @@ function App() {
           <Box mb={8}>
             <Heading size="lg" mb={4}>Child training</Heading>
             <SimpleGrid columns={3} spacing={4} gap="40px">
-              <ModuleCard title="Module" />
-              <ModuleCard title="Module" />
-              <ModuleCard title="Module" />
+              <ModuleCard title="Diabetes Basics" />
+              <ModuleCard title="Daily Management" />
+              <ModuleCard title="Food & Nutrition" />
+              <ModuleCard title="Emergency Preparedness" />
+              <ModuleCard title="Exercise & Activity" />
+              <ModuleCard title="School & Daily Life Support" />
             </SimpleGrid>
           </Box>
         </Container>
