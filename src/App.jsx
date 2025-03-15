@@ -1,8 +1,23 @@
 import { Box, Container, Grid, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 import Sidebar from "./components/Sidebar";
 import ModuleCard from "./components/ModuleCard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ModuleOverview from "./components/ModuleOverview";
+import { childModules } from './data/modules';
 
 function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/module/:moduleId" element={<ModuleOverview />} />
+      </Routes>
+    </Router>
+  );
+}
+
+// Move your current App content to a new Dashboard component
+function Dashboard() {
   return (
     <Box display="flex">
       <Sidebar />
@@ -37,12 +52,13 @@ function App() {
           <Box mb={8}>
             <Heading size="lg" mb={4}>Child training</Heading>
             <SimpleGrid columns={3} spacing={4} gap="40px">
-              <ModuleCard title="Diabetes Basics" />
-              <ModuleCard title="Daily Management" />
-              <ModuleCard title="Food & Nutrition" />
-              <ModuleCard title="Emergency Preparedness" />
-              <ModuleCard title="Exercise & Activity" />
-              <ModuleCard title="School & Daily Life Support" />
+              {childModules.map((module) => (
+                <ModuleCard 
+                  key={module.id}
+                  moduleId={module.id}
+                  title={module.title}
+                />
+              ))}
             </SimpleGrid>
           </Box>
         </Container>

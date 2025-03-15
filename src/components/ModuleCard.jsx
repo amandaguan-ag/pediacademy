@@ -1,11 +1,19 @@
 import { Box, Text, VStack } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
-export default function ModuleCard({ title }) {
+export default function ModuleCard({ title, moduleId }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/module/${moduleId}`);
+  };
+
   return (
     <Box
       bg="gray.100"
       p={6}
       cursor="pointer"
+      onClick={handleClick}
       _hover={{ 
         bg: "gray.200",
         transform: "translateY(-2px)",
@@ -15,6 +23,7 @@ export default function ModuleCard({ title }) {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      borderRadius="lg"
       boxShadow="sm"
     >
       <VStack spacing={2}>
