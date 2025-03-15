@@ -2,10 +2,6 @@ import { Box, Container, Heading, Text, VStack, Button, Image } from "@chakra-ui
 import { useParams, useNavigate } from "react-router-dom";
 import { childModules } from "../data/modules";
 
-// Import images
-import image1 from "../assets/01-diabetes-basics/01-what-is-diabetes/1.png";
-import image2 from "../assets/01-diabetes-basics/01-what-is-diabetes/2.png";
-
 export default function LessonView() {
   const { moduleId, lessonId } = useParams();
   const navigate = useNavigate();
@@ -21,8 +17,28 @@ export default function LessonView() {
     navigate(`/module/${moduleId}`);
   };
 
-  // Only show images for this specific lesson
-  const isWhatIsDiabetesLesson = moduleId === 'diabetes-basics' && lessonId === 'what-is-diabetes';
+  // Dynamic image imports
+  const getImagePaths = () => {
+    try {
+      // Format the paths based on module and lesson IDs
+      const formattedModuleId = moduleId.replace(/-/g, '-');
+      const formattedLessonId = lessonId.replace(/-/g, '-');
+      
+      // Currently only diabetes-basics/what-is-diabetes has images
+      if (moduleId === 'diabetes-basics' && lessonId === 'what-is-diabetes') {
+        return [
+          `/src/assets/01-${formattedModuleId}/01-${formattedLessonId}/1.png`,
+          `/src/assets/01-${formattedModuleId}/01-${formattedLessonId}/2.png`
+        ];
+      }
+      return [];
+    } catch (error) {
+      console.warn(`Images not found for module: ${moduleId}, lesson: ${lessonId}`);
+      return [];
+    }
+  };
+
+  const imagePaths = getImagePaths();
 
   return (
     <Box p={8}>
@@ -37,20 +53,18 @@ export default function LessonView() {
             <Text color="gray.600">Duration: {lesson.duration}</Text>
           </Box>
 
-          {isWhatIsDiabetesLesson ? (
+          {imagePaths.length > 0 ? (
             <VStack spacing={8} align="center">
-              <Image 
-                src={image1} 
-                alt="Comic Introducing to Glucie and blood vessels of Tommy"
-                borderRadius="lg"
-                maxW="800px"
-              />
-              <Image 
-                src={image2} 
-                alt="Comic introducing blood vassel traffic jam"
-                borderRadius="lg"
-                maxW="800px"
-              />
+              {imagePaths.map((path, index) => (
+                <Image 
+                  key={index}
+                  src={path}
+                  alt={`Lesson image ${index + 1}`}
+                  borderRadius="lg"
+                  maxW="800px"
+                  fallback={<Box p={8} bg="gray.100" borderRadius="lg">Image not available</Box>}
+                />
+              ))}
             </VStack>
           ) : (
             <Box bg="gray.100" p={8} borderRadius="lg">
