@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box, Container, Grid, Heading, Text, SimpleGrid } from "@chakra-ui/react";
+import Sidebar from "./components/Sidebar";
+import ModuleCard from "./components/ModuleCard";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Box display="flex">
+      <Sidebar />
+      <Box ml="200px" p={8} width="full">
+        <Container maxW="container.xl">
+          <Heading mb={8}>Dashboard</Heading>
+
+          {/* Intro Section */}
+          <Box 
+            bg="gray.100" 
+            p={6} 
+            mb={8}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Text fontSize="xl">Intro, child info</Text>
+            <Text fontSize="xl">›</Text>
+          </Box>
+
+          {/* Parent Training Section */}
+          <Box mb={8}>
+            <Heading size="lg" mb={4}>Parent training</Heading>
+            <SimpleGrid columns={3} spacing={4} gap="40px">
+              <ModuleCard title="Module" />
+              <ModuleCard title="Module" />
+              <ModuleCard title="Module" />
+            </SimpleGrid>
+          </Box>
+
+          {/* Child Training Section */}
+          <Box mb={8}>
+            <Heading size="lg" mb={4}>Child training</Heading>
+            <SimpleGrid columns={3} spacing={4} gap="40px">
+              <ModuleCard title="Module" />
+              <ModuleCard title="Module" />
+              <ModuleCard title="Module" />
+            </SimpleGrid>
+          </Box>
+        </Container>
+      </Box>
+    </Box>
+  );
 }
 
-export default App
+export default App;
