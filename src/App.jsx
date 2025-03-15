@@ -4,6 +4,7 @@ import ModuleCard from "./components/ModuleCard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ModuleOverview from "./components/ModuleOverview";
 import { childModules } from './data/modules';
+import LessonView from "./components/LessonView";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/module/:moduleId" element={<ModuleOverview />} />
+            <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonView />} />
           </Routes>
         </Box>
       </Box>

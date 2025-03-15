@@ -4,8 +4,16 @@ export const childModules = [
     title: 'Diabetes Basics',
     description: 'Learn the fundamentals of diabetes, including what it is, types, and basic concepts.',
     lessons: [
-      { title: 'Level 1: What is Diabetes?', duration: '30 mins' },
-      { title: 'Level 2: Types of Diabetes', duration: '45 mins' }
+      { 
+        id: 'what-is-diabetes',
+        title: 'Level 1: What is Diabetes?', 
+        duration: '30 mins' 
+      },
+      { 
+        id: 'types-of-diabetes',
+        title: 'Level 2: Types of Diabetes', 
+        duration: '45 mins' 
+      }
     ]
   },
   {
