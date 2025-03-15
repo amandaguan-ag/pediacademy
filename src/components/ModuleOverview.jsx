@@ -31,7 +31,6 @@ export default function ModuleOverview() {
 
               {/* Lessons Section */}
               <Box>
-                <Heading size="md" mb={4}>Lessons + estimated time to complete</Heading>
                 <VStack spacing={4} align="stretch">
                   {module.lessons.map((lesson, index) => (
                     <Box 
