@@ -75,15 +75,17 @@ export default function LessonView() {
               </Box>
             )}
             
-            <Flex justify="flex-end" mt={4}>
-              <Button
-                colorScheme="blue"
-                onClick={handleNext}
-                size="lg"
-              >
-                Next
-              </Button>
-            </Flex>
+            {imagePaths.length > 0 && (
+              <Flex justify="flex-end" mt={4}>
+                <Button
+                  colorScheme="blue"
+                  onClick={handleNext}
+                  size="lg"
+                >
+                  Next
+                </Button>
+              </Flex>
+            )}
           </Box>
         </VStack>
       </Container>
