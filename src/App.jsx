@@ -7,7 +7,7 @@ import { childModules } from './data/modules';
 import LessonView from "./components/LessonView";
 import MessagePage from "./components/MessagePage";
 import FlashcardView from "./components/FlashcardView";
-
+import ModuleCompletion from "./components/ModuleCompletion";
 function App() {
   return (
     <Router>
@@ -20,6 +20,7 @@ function App() {
             <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonView />} />
             <Route path="/module/:moduleId/lesson/:lessonId/complete" element={<MessagePage />} />
             <Route path="/module/:moduleId/lesson/:lessonId/flashcards" element={<FlashcardView />} />
+            <Route path="/module/:moduleId/lesson/:lessonId/completion" element={<ModuleCompletion />} />=
           </Routes>
         </Box>
       </Box>

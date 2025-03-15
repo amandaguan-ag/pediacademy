@@ -33,6 +33,8 @@ export default function FlashcardView() {
     if (currentIndex < totalCards - 1) {
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false);
+    } else {
+      navigate(`/module/${moduleId}/lesson/${lessonId}/completion`);
     }
   };
 
