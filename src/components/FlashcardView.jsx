@@ -57,10 +57,6 @@ export default function FlashcardView() {
         <VStack spacing={8}>
           <Flex w="full" justify="space-between" align="center">
             <Text fontSize="2xl">Flashcards</Text>
-            <Icon
-              as={FiStar}
-              variant="ghost"
-            />
           </Flex>
 
           <Flex w="full" align="center" gap={4}>
@@ -86,13 +82,23 @@ export default function FlashcardView() {
               p={8}
               cursor="pointer"
               onClick={() => setIsFlipped(!isFlipped)}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
+              position="relative"
             >
-              <Text fontSize="xl" textAlign="center">
-                {isFlipped ? cards[currentIndex]?.definition : cards[currentIndex]?.term}
-              </Text>
+              <Icon
+                as={FiStar}
+                position="absolute"
+                top={4}
+                right={4}
+                boxSize={5}
+                color="gray.500"
+                cursor="pointer"
+                _hover={{ color: "gray.700" }}
+              />
+              <Flex h="full" align="center" justify="center">
+                <Text fontSize="xl" textAlign="center">
+                  {isFlipped ? cards[currentIndex]?.definition : cards[currentIndex]?.term}
+                </Text>
+              </Flex>
             </Box>
 
             <Icon
