@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Text, VStack, Button, Image } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, VStack, Button, Image, Flex } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { childModules } from "../data/modules";
 
@@ -17,14 +17,16 @@ export default function LessonView() {
     navigate(`/module/${moduleId}`);
   };
 
+  const handleNext = () => {
+    navigate(`/module/${moduleId}/lesson/${lessonId}/complete`);
+  };
+
   // Dynamic image imports
   const getImagePaths = () => {
     try {
-      // Format the paths based on module and lesson IDs
       const formattedModuleId = moduleId.replace(/-/g, '-');
       const formattedLessonId = lessonId.replace(/-/g, '-');
       
-      // Currently only diabetes-basics/what-is-diabetes has images
       if (moduleId === 'diabetes-basics' && lessonId === 'what-is-diabetes') {
         return [
           `/src/assets/01-${formattedModuleId}/01-${formattedLessonId}/1.png`,
@@ -53,24 +55,36 @@ export default function LessonView() {
             <Text color="gray.600">Duration: {lesson.duration}</Text>
           </Box>
 
-          {imagePaths.length > 0 ? (
-            <VStack spacing={8} align="center">
-              {imagePaths.map((path, index) => (
-                <Image 
-                  key={index}
-                  src={path}
-                  alt={`Lesson image ${index + 1}`}
-                  borderRadius="lg"
-                  maxW="800px"
-                  fallback={<Box p={8} bg="gray.100" borderRadius="lg">Image not available</Box>}
-                />
-              ))}
-            </VStack>
-          ) : (
-            <Box bg="gray.100" p={8} borderRadius="lg">
-              <Text>Lesson content will go here</Text>
-            </Box>
-          )}
+          <Box position="relative">
+            {imagePaths.length > 0 ? (
+              <VStack spacing={8} align="center">
+                {imagePaths.map((path, index) => (
+                  <Image 
+                    key={index}
+                    src={path}
+                    alt={`Lesson image ${index + 1}`}
+                    borderRadius="lg"
+                    maxW="800px"
+                    fallback={<Box p={8} bg="gray.100" borderRadius="lg">Image not available</Box>}
+                  />
+                ))}
+              </VStack>
+            ) : (
+              <Box bg="gray.100" p={8} borderRadius="lg">
+                <Text>Lesson content will go here</Text>
+              </Box>
+            )}
+            
+            <Flex justify="flex-end" mt={4}>
+              <Button
+                colorScheme="blue"
+                onClick={handleNext}
+                size="lg"
+              >
+                Next
+              </Button>
+            </Flex>
+          </Box>
         </VStack>
       </Container>
     </Box>

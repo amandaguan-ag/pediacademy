@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ModuleOverview from "./components/ModuleOverview";
 import { childModules } from './data/modules';
 import LessonView from "./components/LessonView";
+import MessagePage from "./components/MessagePage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/module/:moduleId" element={<ModuleOverview />} />
             <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonView />} />
+            <Route path="/module/:moduleId/lesson/:lessonId/complete" element={<MessagePage />} />
           </Routes>
         </Box>
       </Box>
