@@ -1,4 +1,4 @@
-import { Box, Container, VStack, Input, Text, Spinner, Button } from "@chakra-ui/react";
+import { Box, Container, VStack, Stack, Input, Text, Spinner, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function DictionaryView() {
@@ -54,15 +54,15 @@ export default function DictionaryView() {
   return (
     <Box p={8}>
       <Container maxW="container.xl">
-        <VStack spacing={6} align="stretch">
+        <VStack spaceY={2} align="stretch">
           <Box
-            bg="white"
+            bg="#ECEFF6"
             _dark={{ bg: "gray.800" }}
             p={6}
             borderRadius="lg"
             boxShadow="sm"
           >
-            <VStack spacing={4}>
+            <Stack spaceY={4}>
               <Input
                 placeholder="Enter a medical term..."
                 value={term}
@@ -76,14 +76,14 @@ export default function DictionaryView() {
                 }}
               />
               <Button
-                colorScheme="blue"
+                bg="#557EC0"
                 onClick={handleSimplify}
                 isLoading={isLoading}
                 width="full"
               >
                 Search
               </Button>
-            </VStack>
+            </Stack>
           </Box>
 
           {simplifiedDefinition && (
