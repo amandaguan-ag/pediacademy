@@ -8,6 +8,8 @@ import LessonView from "./components/LessonView";
 import MessagePage from "./components/MessagePage";
 import FlashcardView from "./components/FlashcardView";
 import ModuleCompletion from "./components/ModuleCompletion";
+import DictionaryView from "./components/DictionaryView";
+
 function App() {
   return (
     <Router>
@@ -17,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/module/:moduleId" element={<ModuleOverview />} />
+            <Route path="/dictionary" element={<DictionaryView />} />
             <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonView />} />
             <Route path="/module/:moduleId/lesson/:lessonId/complete" element={<MessagePage />} />
             <Route path="/module/:moduleId/lesson/:lessonId/flashcards" element={<FlashcardView />} />

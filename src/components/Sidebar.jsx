@@ -1,5 +1,5 @@
 import { Box, VStack, Link, Icon } from "@chakra-ui/react";
-import { FiHome, FiBook, FiMessageSquare, FiAlertCircle, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
+import { FiHome, FiBook, FiMessageSquare, FiAlertCircle, FiUser, FiSettings, FiLogOut, FiBookOpen } from "react-icons/fi";
 
 const SidebarItem = ({ icon, children, ...props }) => (
   <Link
@@ -33,6 +33,7 @@ export default function Sidebar() {
         <VStack spacing={1} align="stretch">
           <SidebarItem icon={FiHome} href="/">Home</SidebarItem>
           <SidebarItem icon={FiBook} href="/modules">Modules</SidebarItem>
+          <SidebarItem icon={FiBookOpen} href="/dictionary">Dictionary</SidebarItem>
           <SidebarItem icon={FiMessageSquare} href="/chat">Chat</SidebarItem>
           <SidebarItem icon={FiAlertCircle} href="/emergency">Emergency</SidebarItem>
         </VStack>
