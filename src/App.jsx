@@ -68,11 +68,7 @@ function Dashboard() {
         </Box>
 
         {/* Child Training Section */}
-<<<<<<< HEAD
-        <Box mb={8}>
-=======
         <Box mb={20}>
->>>>>>> c49ea79c7ff387f969006a8a42fc0fda62187094
           <Heading size="lg">Child training</Heading>
           <SimpleGrid columns={3} spacing={4} gap="40px">
             {childModules.map((module) => (
@@ -81,10 +77,7 @@ function Dashboard() {
                 moduleId={module.id}
                 title={module.title}
                 description={module.description}
-<<<<<<< HEAD
-=======
                 mb={-6}
->>>>>>> c49ea79c7ff387f969006a8a42fc0fda62187094
               />
             ))}
           </SimpleGrid>
