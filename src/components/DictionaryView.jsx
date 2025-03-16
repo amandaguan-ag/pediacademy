@@ -3,12 +3,12 @@ import { useState } from "react";
 
 export default function DictionaryView() {
   const [term, setTerm] = useState("");
-  const [simplifiedDefinition, setSimplifiedDefinition] = useState("");
+  const [simplifiedDefinition, setSimplifiedDefinition] = useState("Please enter a term to explain...like 'glucose' or 'insulin'.");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSimplify = async () => {
     if (!term.trim()) {
-      setSimplifiedDefinition("Please enter a term to explain.");
+      setSimplifiedDefinition("Please enter a term to explain...like 'glucose' or 'insulin'.");
       return;
     }
 

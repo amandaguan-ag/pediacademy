@@ -1,6 +1,6 @@
 # Pediacademy
 
-#### By **Amanda Guan**, **Ciel Park**
+### By **Amanda Guan**, **Ciel Park**
 
 #### An interactive learning platform making diabetes education fun and accessible for kids.
 
