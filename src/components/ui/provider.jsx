@@ -5,7 +5,13 @@ import { ColorModeProvider } from './color-mode'
 
 export function Provider(props) {
   return (
-    <ChakraProvider value={defaultSystem}>
+    <ChakraProvider 
+      value={defaultSystem}
+      config={{
+        initialColorMode: 'system',
+        useSystemColorMode: true,
+      }}
+    >
       <ColorModeProvider {...props} />
     </ChakraProvider>
   )

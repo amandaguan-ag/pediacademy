@@ -111,9 +111,9 @@ export default function FlashcardView() {
             <Box
               flex="1"
               h="400px"
-              bg="white"
+              bg="gray.100"
+              _dark={{ bg: "gray.800" }}
               borderRadius="lg"
-              boxShadow="md"
               p={8}
               cursor="pointer"
               onClick={() => setIsFlipped(!isFlipped)}
@@ -145,7 +145,8 @@ export default function FlashcardView() {
                 <Text 
                   fontSize="xl" 
                   textAlign="center"
-                  bg="gray.100"
+                  color="gray.900"
+                  _dark={{ color: "gray.100" }}
                   p={8}
                   borderRadius="md"
                   flex="1"

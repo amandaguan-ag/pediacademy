@@ -55,30 +55,51 @@ export default function DictionaryView() {
     <Box p={8}>
       <Container maxW="container.xl">
         <VStack spacing={6} align="stretch">
-          <Text fontSize="2xl" fontWeight="bold">Diabetes Dictionary</Text>
-          <Text color="gray.600">
-            Enter any diabetes-related term, and I'll explain it in simple words!
-          </Text>
-          <Input
-            placeholder="Enter a medical term (e.g., insulin, glucose)..."
-            value={term}
-            onChange={(e) => setTerm(e.target.value)}
-            size="lg"
-          />
-          <Button 
-            onClick={handleSimplify}
-            colorScheme="blue"
-            isLoading={isLoading}
-            size="lg"
+          <Box
+            bg="white"
+            _dark={{ bg: "gray.800" }}
+            p={6}
+            borderRadius="lg"
+            boxShadow="sm"
           >
-            Explain This Term
-          </Button>
-          
-          {isLoading && <Spinner />}
-          
+            <VStack spacing={4}>
+              <Input
+                placeholder="Enter a medical term..."
+                value={term}
+                onChange={(e) => setTerm(e.target.value)}
+                size="lg"
+                bg="gray.50"
+                _dark={{ 
+                  bg: "gray.700",
+                  color: "gray.100",
+                  _placeholder: { color: "gray.400" }
+                }}
+              />
+              <Button
+                colorScheme="blue"
+                onClick={handleSimplify}
+                isLoading={isLoading}
+                width="full"
+              >
+                Search
+              </Button>
+            </VStack>
+          </Box>
+
           {simplifiedDefinition && (
-            <Box p={6} bg="gray.100" borderRadius="lg" mt={4}>
-              <Text fontSize="lg">{simplifiedDefinition}</Text>
+            <Box
+              bg="gray.50"
+              _dark={{ bg: "gray.700" }}
+              p={6}
+              borderRadius="lg"
+            >
+              <Text
+                color="gray.800"
+                _dark={{ color: "gray.100" }}
+                fontSize="lg"
+              >
+                {simplifiedDefinition}
+              </Text>
             </Box>
           )}
         </VStack>

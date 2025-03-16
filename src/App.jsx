@@ -41,19 +41,40 @@ function Dashboard() {
         {/* Intro Section */}
         <Box 
           bg="gray.100" 
+          _dark={{ bg: "gray.700" }}
           p={6} 
           mb={8}
           display="flex"
           justifyContent="space-between"
           alignItems="center"
+          borderRadius="lg"
         >
-          <Text fontSize="xl">Intro, child info</Text>
-          <Text fontSize="xl">›</Text>
+          <Text 
+            fontSize="xl" 
+            color="gray.800"
+            _dark={{ color: "gray.100" }}
+          >
+            Intro, child info
+          </Text>
+          <Text 
+            fontSize="xl"
+            color="gray.800"
+            _dark={{ color: "gray.100" }}
+          >
+            ›
+          </Text>
         </Box>
 
         {/* Parent Training Section */}
         <Box mb={8}>
-          <Heading size="lg" mb={4}>Parent training</Heading>
+          <Heading 
+            size="lg" 
+            mb={4}
+            color="gray.900"
+            _dark={{ color: "gray.50" }}
+          >
+            Parent training
+          </Heading>
           <SimpleGrid columns={3} spacing={4} gap="40px">
             <ModuleCard title="Placeholder" />
             <ModuleCard title="Placeholder" />
@@ -63,7 +84,14 @@ function Dashboard() {
 
         {/* Child Training Section */}
         <Box mb={8}>
-          <Heading size="lg" mb={4}>Child training</Heading>
+          <Heading 
+            size="lg" 
+            mb={4}
+            color="gray.900"
+            _dark={{ color: "gray.50" }}
+          >
+            Child training
+          </Heading>
           <SimpleGrid columns={3} spacing={4} gap="40px">
             {childModules.map((module) => (
               <ModuleCard 

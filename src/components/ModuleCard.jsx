@@ -11,6 +11,10 @@ export default function ModuleCard({ title, moduleId }) {
   return (
     <Box
       bg="gray.100"
+      _dark={{ 
+        bg: "gray.700",
+        _hover: { bg: "gray.600" }
+      }}
       p={6}
       cursor="pointer"
       onClick={handleClick}
@@ -27,8 +31,22 @@ export default function ModuleCard({ title, moduleId }) {
       boxShadow="sm"
     >
       <VStack spacing={2}>
-        <Text fontSize="xl" fontWeight="bold" textAlign="center">{title}</Text>
-        <Text fontSize="sm" color="gray.600">Click to explore levels</Text>
+        <Text 
+          fontSize="xl" 
+          fontWeight="bold" 
+          textAlign="center"
+          color="gray.800"
+          _dark={{ color: "gray.100" }}
+        >
+          {title}
+        </Text>
+        <Text 
+          fontSize="sm" 
+          color="gray.600"
+          _dark={{ color: "gray.300" }}
+        >
+          Click to explore levels
+        </Text>
       </VStack>
     </Box>
   );
