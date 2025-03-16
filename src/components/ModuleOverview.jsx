@@ -14,18 +14,37 @@ export default function ModuleOverview() {
   return (
     <Box p={8}>
       <Container maxW="container.xl">
-        <Heading mb={8}>Module Overview</Heading>
+        <Heading 
+          mb={8}
+          color="gray.900"
+          _dark={{ color: "gray.50" }}
+        >
+          Module Overview
+        </Heading>
         
         <Box 
           bg="gray.100" 
+          _dark={{ bg: "gray.700" }}
           p={8} 
           borderRadius="lg"
           mb={8}
         >
           <VStack spacing={8} align="stretch">
             <Box>
-              <Heading size="md" mb={4}>Description</Heading>
-              <Text>{module.description}</Text>
+              <Heading 
+                size="md" 
+                mb={4}
+                color="gray.900"
+                _dark={{ color: "gray.50" }}
+              >
+                Description
+              </Heading>
+              <Text
+                color="gray.800"
+                _dark={{ color: "gray.100" }}
+              >
+                {module.description}
+              </Text>
             </Box>
 
             <Box>

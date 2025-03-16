@@ -52,7 +52,7 @@ export default function LessonView() {
         <VStack spacing={8} align="stretch">
           <Box>
             <Heading size="lg" mb={2}>{lesson.title}</Heading>
-            <Text color="gray.600">Duration: {lesson.duration}</Text>
+            <Text color="gray.700" _dark={{ color: "gray.200" }}>Duration: {lesson.duration}</Text>
           </Box>
 
           <Box position="relative">
@@ -65,13 +65,13 @@ export default function LessonView() {
                     alt={`Lesson image ${index + 1}`}
                     borderRadius="lg"
                     maxW="800px"
-                    fallback={<Box p={8} bg="gray.100" borderRadius="lg">Image not available</Box>}
+                    fallback={<Box p={8} bg="gray.200" _dark={{ bg: "gray.700" }} borderRadius="lg">Image not available</Box>}
                   />
                 ))}
               </VStack>
             ) : (
-              <Box bg="gray.100" p={8} borderRadius="lg">
-                <Text>Lesson content will go here</Text>
+              <Box bg="gray.200" _dark={{ bg: "gray.700" }} p={8} borderRadius="lg">
+                <Text color="gray.800" _dark={{ color: "gray.200" }}>Lesson content will go here</Text>
               </Box>
             )}
             
