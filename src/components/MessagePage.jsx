@@ -1,5 +1,6 @@
-import { Box, Container, VStack, Text, Button, Heading } from "@chakra-ui/react";
+import { Box, Container, Stack, Text, Button, Heading } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ArrowBackRounded } from "@mui/icons-material";
 
 export default function MessagePage() {
   const navigate = useNavigate();
@@ -9,43 +10,46 @@ export default function MessagePage() {
     navigate(`/module/${moduleId}/lesson/${lessonId}/flashcards`);
   };
 
+  const handleBackToLesson = () => {
+    navigate(`/module/${moduleId}/lesson/${lessonId}`);
+  };
+
   return (
     <Box p={8}>
       <Container maxW="container.xl">
-        <VStack 
-          spacing={8} 
-          align="center" 
-          bg="gray.200"
+        <Button mb={6} px={0} onClick={handleBackToLesson} variant="ghost">
+          <ArrowBackRounded />
+          Back to Lesson
+        </Button>
+        <Stack
+          spaceY={4}
+          bg="#ECEFF6"
           _dark={{ bg: "gray.800" }}
-          p={8} 
-          borderRadius="lg"
-          minH="400px"
-          justify="center"
+          p={8}
+          borderRadius="xl"
         >
-          <Heading 
-            fontSize="2xl" 
-            textAlign="center"
-            color="gray.900"
+          <Heading
+            fontSize="lg"
             _dark={{ color: "gray.100" }}
           >
             Knowledge Test
           </Heading>
-          <Text 
-            fontSize="xl" 
-            textAlign="center"
-            color="gray.800"
+          <Text
             _dark={{ color: "gray.200" }}
           >
-            You have finished the learning portion of this module. We will now continue to the knowledge testing part.
+            Congratulations! You have finished the reading for this module. Continue to test your knowledge of the lesson material.
           </Text>
           <Button
-            colorScheme="blue"
-            size="lg"
+            bg="#557EC0"
+            borderRadius="xl"
+            width="max-content"
+            px={20}
             onClick={handleContinue}
+            size="lg"
           >
             Continue
           </Button>
-        </VStack>
+        </Stack>
       </Container>
     </Box>
   );

@@ -1,8 +1,8 @@
-import Card from "./Card";
-import { Text, VStack } from "@chakra-ui/react";
+import { Box, Text, Stack, Icon } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-export default function ModuleCard({ title, description, moduleId, children, ...props }) {
+export default function ModuleCard({ title, description, moduleId, children, color, icolor, icon: IconComponent, ...props }) {
+
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -10,25 +10,35 @@ export default function ModuleCard({ title, description, moduleId, children, ...
   };
 
   return (
-    <Card
-      title={title} 
-      cursor="pointer" 
+    <Box
+      bg={color}
+      p={6}
+      my={6}
+      display="flex"
+      borderRadius="xl"
+      boxShadow="sm"
+      cursor="pointer"
       onClick={handleClick}
-      _hover={{ 
-        transform: "translateY(-2px)", 
+      _hover={{
+        transform: "translateY(-2px)",
         transition: "all 0.2s ease-in-out"
       }}
       {...props}
     >
-      <VStack 
-        spacing={2} 
-        align="center"
+      <Stack
+        spacing={2}
+        align="left"
       >
+        {IconComponent && (
+          <Box mb={4}>
+            <Icon as={IconComponent} boxSize={8} color={icolor} />
+          </Box>
+        )}
         <Text>
           {description}
           {children}
         </Text>
-      </VStack>
-    </Card>
+      </Stack>
+    </Box>
   );
 }

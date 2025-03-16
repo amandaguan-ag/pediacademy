@@ -1,6 +1,7 @@
 import { Box, Container, Heading, Text, VStack, Button, Image, Flex } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { childModules } from "../data/modules";
+import { ArrowBackRounded } from "@mui/icons-material";
 
 export default function LessonView() {
   const { moduleId, lessonId } = useParams();
@@ -45,14 +46,15 @@ export default function LessonView() {
   return (
     <Box p={8}>
       <Container maxW="container.xl">
-        <Button mb={4} onClick={handleBack} variant="ghost">
-          ← Back to Module
+        <Button mb={6} px={0} onClick={handleBack} variant="ghost">
+          <ArrowBackRounded/>
+          Back to Module
         </Button>
         
         <VStack spacing={8} align="stretch">
           <Box>
             <Heading size="lg" mb={2}>{lesson.title}</Heading>
-            <Text color="gray.700" _dark={{ color: "gray.200" }}>Duration: {lesson.duration}</Text>
+            <Text _dark={{ color: "gray.200" }}>Duration: {lesson.duration}</Text>
           </Box>
 
           <Box position="relative">
@@ -70,15 +72,18 @@ export default function LessonView() {
                 ))}
               </VStack>
             ) : (
-              <Box bg="gray.200" _dark={{ bg: "gray.700" }} p={8} borderRadius="lg">
-                <Text color="gray.800" _dark={{ color: "gray.200" }}>Lesson content will go here</Text>
+              <Box _dark={{ bg: "gray.700" }} p={8} borderRadius="lg">
+                <Text _dark={{ color: "gray.200" }}>Lesson content will go here</Text>
               </Box>
             )}
             
             {imagePaths.length > 0 && (
               <Flex justify="flex-end" mt={4}>
                 <Button
-                  colorScheme="blue"
+                  bg="#557EC0"
+                  borderRadius="xl"
+                  width="max-content"
+                  px={20}
                   onClick={handleNext}
                   size="lg"
                 >

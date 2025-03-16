@@ -1,7 +1,7 @@
 import { Box, Container, VStack, Text, Button, Flex, Icon, HStack, Textarea } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { FiStar, FiChevronLeft, FiChevronRight, FiMaximize, FiShuffle } from "react-icons/fi";
+import { ShuffleRounded, FullscreenRounded, StarBorderRounded, ChevronLeftRounded, ChevronRightRounded } from "@mui/icons-material";
 
 const flashcardData = {
   'diabetes-basics': {
@@ -101,51 +101,51 @@ export default function FlashcardView() {
   return (
     <Box p={8}>
       <Container maxW="container.xl">
-        <VStack spacing={8}>
+        <VStack spaceY={6}>
           <Flex w="full" justify="space-between" align="center">
-            <Text fontSize="2xl">Flashcards</Text>
+            <Text fontWeight='semibold' fontSize="lg">Lesson Flashcards</Text>
           </Flex>
 
           <Flex w="full" align="center" gap={4}>
             
             <Box
               flex="1"
-              h="400px"
-              bg="gray.100"
+              h="500px"
+              bg="#ECEFF6"
               _dark={{ bg: "gray.800" }}
-              borderRadius="lg"
-              p={8}
+              borderRadius="xl"
+              p={2}
               cursor="pointer"
               onClick={() => setIsFlipped(!isFlipped)}
               position="relative"
             >
               <Icon
-                as={FiStar}
+                as={StarBorderRounded}
                 position="absolute"
-                top={4}
-                right={4}
-                boxSize={5}
+                top={6}
+                right={6}
+                boxSize={8}
                 color="gray.500"
                 cursor="pointer"
-                _hover={{ color: "gray.700" }}
+                _hover={{ color: "#85B0DE" }}
               />
               <Flex h="full" align="center" justify="space-between" px={8}>
                 <Icon
-                  as={FiChevronLeft}
+                  as={ChevronLeftRounded}
                   onClick={handlePrevious}
                   cursor={currentIndex === 0 ? "not-allowed" : "pointer"}
                   opacity={currentIndex === 0 ? 0.4 : 1}
                   boxSize={8}
                   color="white"
-                  bg="black"
+                  bg="#557EC0"
                   p={1}
                   borderRadius="md"
-                  _hover={{ bg: "gray.800" }}
+                  _hover={currentIndex === 0 ? { bg: "#557EC0" } : { bg: "#85B0DE" }}
                 />
                 <Text 
-                  fontSize="xl" 
+                  fontWeight={isFlipped ? "" : "semibold"}
+                  fontSize="2xl" 
                   textAlign="center"
-                  color="gray.900"
                   _dark={{ color: "gray.100" }}
                   p={8}
                   borderRadius="md"
@@ -159,16 +159,16 @@ export default function FlashcardView() {
                   {isFlipped ? cards[currentIndex]?.definition : cards[currentIndex]?.term}
                 </Text>
                 <Icon
-                  as={FiChevronRight}
+                  as={ChevronRightRounded}
                   onClick={handleNext}
                   cursor={currentIndex === totalCards - 1 ? "not-allowed" : "pointer"}
                   opacity={currentIndex === totalCards - 1 ? 0.4 : 1}
                   boxSize={8}
                   color="white"
-                  bg="black"
+                  bg="#557EC0"
                   p={1}
                   borderRadius="md"
-                  _hover={{ bg: "gray.800" }}
+                  _hover={currentIndex === totalCards - 1 ? { bg: "#557EC0" } : { bg: "#85B0DE" }}
                 />
               </Flex>
             </Box>
@@ -176,13 +176,13 @@ export default function FlashcardView() {
 
           </Flex>
 
-          <HStack spacing={4} w="full" justify="space-between">
-            <Button leftIcon={<FiShuffle />} onClick={handleShuffle} variant="ghost">
-              Shuffle
+          <HStack w="full" justify="space-between">
+            <Button onClick={handleShuffle} variant="ghost">
+              <ShuffleRounded />
             </Button>
-            <Text>{`${currentIndex + 1}/${totalCards}`}</Text>
-            <Button rightIcon={<FiMaximize />} onClick={handleFullscreen} variant="ghost">
-              Fullscreen
+            <Text fontSize="xl">{`${currentIndex + 1}/${totalCards}`}</Text>
+            <Button onClick={handleFullscreen} variant="ghost">
+              <FullscreenRounded />
             </Button>
           </HStack>
 

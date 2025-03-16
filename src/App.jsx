@@ -1,9 +1,10 @@
-import { Box, Container, Grid, Heading, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import Sidebar from "./components/Sidebar";
 import ModuleCard from "./components/ModuleCard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ModuleOverview from "./components/ModuleOverview";
 import { childModules } from './data/modules';
+import { parentModules } from './data/modules';
 import LessonView from "./components/LessonView";
 import FlashcardView from "./components/FlashcardView";
 import ModuleCompletion from "./components/ModuleCompletion";
@@ -48,9 +49,9 @@ function App() {
 function Dashboard() {
   return (
     <Box my={10}>
-      <Container maxW="container.xl" >
+      <Container maxW="container.xl">
         {/* Intro Section */}
-        <Box mb={8}>
+        <Box mb={12}>
           <Heading>Welcome to Pediacademy!</Heading>
           <Card title="Create your child's  Medical ID">Ensures quick access to your child’s condition, medication, and emergency contacts. Save it to their lock screen so it can be accessed without unlocking the phone. 
             <Button>Start</Button>
@@ -58,12 +59,21 @@ function Dashboard() {
         </Box>
 
         {/* Parent Training Section */}
-        <Box mb={8}>
+        <Box mb={20}>
           <Heading size="lg">Parent training</Heading>
           <SimpleGrid columns={3} spacing={4} gap="40px">
-            <ModuleCard title="Placeholder">Placeholder description blah blah</ModuleCard>
-            <ModuleCard title="Placeholder">Placeholder description blah blah</ModuleCard>
-            <ModuleCard title="Placeholder">Placeholder description blah blah</ModuleCard>
+            {parentModules.map((module) => (
+                <ModuleCard 
+                  key={module.id}
+                  moduleId={module.id}
+                  title={module.title}
+                  description={module.description}
+                  color={module.color}
+                  icolor={module.icolor}
+                  icon={module.icon}
+                  mb={-6}
+                />
+              ))}
           </SimpleGrid>
         </Box>
 
@@ -77,6 +87,9 @@ function Dashboard() {
                 moduleId={module.id}
                 title={module.title}
                 description={module.description}
+                color={module.color}
+                icolor={module.icolor}
+                icon={module.icon}
                 mb={-6}
               />
             ))}

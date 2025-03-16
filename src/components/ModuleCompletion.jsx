@@ -1,4 +1,4 @@
-import { Box, Container, VStack, Text, Button, Heading } from "@chakra-ui/react";
+import { Box, Container, Stack, Text, Button, Heading } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 export default function ModuleCompletion() {
@@ -11,48 +11,30 @@ export default function ModuleCompletion() {
   return (
     <Box p={8}>
       <Container maxW="container.xl">
-        <VStack 
-          spacing={8} 
-          align="center" 
-          bg="gray.200"
+        <Stack
+          spaceY={4}
+          bg="#ECEFF6"
           _dark={{ bg: "gray.800" }}
-          p={8} 
-          borderRadius="lg"
-          minH="400px"
-          justify="center"
+          p={8}
+          borderRadius="xl"
         >
-          <Heading 
-            fontSize="2xl" 
-            textAlign="center"
-            color="gray.900"
-            _dark={{ color: "gray.100" }}
-          >
+          <Heading fontSize="lg" _dark={{ color: "gray.100" }}>
             Module Completion
           </Heading>
-          <Text 
-            fontSize="xl" 
-            textAlign="center"
-            color="gray.800"
-            _dark={{ color: "gray.200" }}
-          >
-            Congrats! You finished the module
-          </Text>
-          <Text 
-            fontSize="lg" 
-            textAlign="center" 
-            color="gray.700"
-            _dark={{ color: "gray.300" }}
-          >
-            Score + AI suggestions
+          <Text fontSize="md" _dark={{ color: "gray.200" }}>
+            Congratulations! You have finished the module.
           </Text>
           <Button
-            colorScheme="gray"
-            size="lg"
+            bg="#557EC0"
+            borderRadius="xl"
+            width="max-content"
+            px={20}
             onClick={handleBackToHome}
+            size="lg"
           >
-            Back to home
+            Back to Home
           </Button>
-        </VStack>
+        </Stack>
       </Container>
     </Box>
   );

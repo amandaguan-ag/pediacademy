@@ -1,4 +1,5 @@
-import { Box, Text, HStack, Button } from "@chakra-ui/react";
+import { Box, Text, HStack } from "@chakra-ui/react";
+import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
 export default function LessonItem({ lesson, moduleId }) {
@@ -11,23 +12,20 @@ export default function LessonItem({ lesson, moduleId }) {
   return (
     <Box 
       p={4}
-      bg="white"
+      bg='#ECEFF6'
       _dark={{ bg: "gray.800" }}
-      borderRadius="md"
-      boxShadow="sm"
+      borderRadius="xl"
     >
       <HStack justify="space-between" align="center">
         <Box>
           <Text 
-            fontWeight="medium"
-            color="gray.800"
+            fontWeight="semibold"
             _dark={{ color: "gray.100" }}
           >
             {lesson.title}
           </Text>
           <Text 
             fontSize="sm" 
-            color="gray.600"
             _dark={{ color: "gray.300" }}
           >
             {lesson.duration}
@@ -35,8 +33,6 @@ export default function LessonItem({ lesson, moduleId }) {
         </Box>
         <Button
           onClick={handleStart}
-          size="sm"
-          colorScheme="blue"
         >
           Start
         </Button>

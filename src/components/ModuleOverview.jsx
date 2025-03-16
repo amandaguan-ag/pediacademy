@@ -16,17 +16,16 @@ export default function ModuleOverview() {
       <Container maxW="container.xl">
         <Heading 
           mb={8}
-          color="gray.900"
           _dark={{ color: "gray.50" }}
         >
           Module Overview
         </Heading>
         
         <Box 
-          bg="gray.100" 
+          bg="#ECEFF6" 
           _dark={{ bg: "gray.700" }}
           p={8} 
-          borderRadius="lg"
+          borderRadius="xl"
           mb={8}
         >
           <VStack spacing={8} align="stretch">
@@ -34,21 +33,21 @@ export default function ModuleOverview() {
               <Heading 
                 size="md" 
                 mb={4}
-                color="gray.900"
                 _dark={{ color: "gray.50" }}
               >
-                Description
+                Summary
               </Heading>
               <Text
-                color="gray.800"
                 _dark={{ color: "gray.100" }}
               >
                 {module.description}
               </Text>
             </Box>
+          </VStack>
+        </Box>
 
-            <Box>
-              <VStack spacing={4} align="stretch">
+        <Box>
+              <VStack spaceY={4} align="stretch">
                 {module.lessons.map((lesson, index) => (
                   <LessonItem 
                     key={index}
@@ -58,8 +57,6 @@ export default function ModuleOverview() {
                 ))}
               </VStack>
             </Box>
-          </VStack>
-        </Box>
       </Container>
     </Box>
   );

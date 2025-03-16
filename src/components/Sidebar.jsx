@@ -1,6 +1,5 @@
 import { Box, VStack, Link, Icon } from "@chakra-ui/react";
 import { WbSunnyRounded, HomeRounded, MenuBookRounded, ChatRounded, EmergencyRounded, PersonRounded, SettingsRounded, LogoutRounded, SchoolRounded} from "@mui/icons-material";
-import { FiHome, FiBook, FiMessageSquare, FiAlertCircle, FiUser, FiSettings, FiLogOut, FiBookOpen } from "react-icons/fi";
 //import { ColorModeButton } from './ui/color-mode';
 
 const SidebarItem = ({ icon, children, ...props }) => (
@@ -38,6 +37,12 @@ export default function Sidebar() {
           {/* <Box px={4} py={2}>
             <ColorModeButton />
           </Box> */}
+          <Box gap={3} mb={2} display="flex" alignItems="center" color="white" px={4}>
+            <Icon size="lg" color="#FFE783">
+              <WbSunnyRounded />
+            </Icon> 
+              Pediacademy
+          </Box>
           <SidebarItem icon={HomeRounded} href="/">Home</SidebarItem>
           <SidebarItem icon={SchoolRounded} href="/modules">Modules</SidebarItem>
           <SidebarItem icon={MenuBookRounded} href="/dictionary">Dictionary</SidebarItem>
