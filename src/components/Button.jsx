@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react";
 
-export default function Card({ children }) {
+export default function Card({ onClick, children }) {
 
   return (
     <Button
@@ -8,6 +8,7 @@ export default function Card({ children }) {
       borderRadius="xl"
       width="max-content"
       px={20}
+      onClick={onClick}
     >
       {children}
     </Button>

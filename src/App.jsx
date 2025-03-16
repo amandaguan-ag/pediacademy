@@ -5,11 +5,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ModuleOverview from "./components/ModuleOverview";
 import { childModules } from './data/modules';
 import LessonView from "./components/LessonView";
-import MessagePage from "./components/MessagePage";
 import FlashcardView from "./components/FlashcardView";
 import ModuleCompletion from "./components/ModuleCompletion";
 import Card from "./components/Card";
 import Button from "./components/Button";
+
+import MessagePage from "./components/MessagePage";
+import ModulesPage from "./components/ModulesPage";
+import ChatPage from "./components/ChatPage";
+import EmergencyPage from "./components/EmergencyPage";
+import ProfilePage from "./components/ProfilePage";
+import SettingsPage from "./components/SettingsPage";
 
 import DictionaryView from "./components/DictionaryView";
 
@@ -21,6 +27,11 @@ function App() {
         <Box ml="200px" width="full">
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/modules" element={<ModulesPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/emergency" element={<EmergencyPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="/module/:moduleId" element={<ModuleOverview />} />
             <Route path="/dictionary" element={<DictionaryView />} />
             <Route path="/module/:moduleId/lesson/:lessonId" element={<LessonView />} />
