@@ -1,7 +1,8 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import Card from "./Card";
+import { Text, VStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-export default function ModuleCard({ title, moduleId }) {
+export default function ModuleCard({ title, description, moduleId, children }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -9,27 +10,24 @@ export default function ModuleCard({ title, moduleId }) {
   };
 
   return (
-    <Box
-      bg="gray.100"
-      p={6}
-      cursor="pointer"
+    <Card
+      title={title} 
+      cursor="pointer" 
       onClick={handleClick}
       _hover={{ 
-        bg: "gray.200",
-        transform: "translateY(-2px)",
+        transform: "translateY(-2px)", 
         transition: "all 0.2s ease-in-out"
       }}
-      height="200px"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      borderRadius="lg"
-      boxShadow="sm"
     >
-      <VStack spacing={2}>
-        <Text fontSize="xl" fontWeight="bold" textAlign="center">{title}</Text>
-        <Text fontSize="sm" color="gray.600">Click to explore levels</Text>
+      <VStack 
+        spacing={2} 
+        align="center"
+      >
+        <Text>
+          {description}
+          {children}
+        </Text>
       </VStack>
-    </Box>
+    </Card>
   );
 }

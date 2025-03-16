@@ -1,15 +1,16 @@
 import { Box, VStack, Link, Icon } from "@chakra-ui/react";
-import { FiHome, FiBook, FiMessageSquare, FiAlertCircle, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
+import { WbSunnyRounded, HomeRounded, MenuBookRounded, ChatRounded, EmergencyRounded, PersonRounded, SettingsRounded, LogoutRounded} from "@mui/icons-material";
 
 const SidebarItem = ({ icon, children, ...props }) => (
   <Link
     display="flex"
     alignItems="center"
     gap={3}
-    px={4}
-    py={3}
-    _hover={{ bg: "gray.100" }}
-    width="full"
+    mx={4}
+    my={3}
+    color="white"
+    _hover={{ color: "#85B0DE", textDecoration: "none" }}
+    _focus={{ color: "#85B0DE", outline: "none", boxShadow: "none" }}
     {...props}
   >
     <Icon as={icon} />
@@ -21,25 +22,26 @@ export default function Sidebar() {
   return (
     <Box
       as="nav"
-      bg="gray.50"
+      bg="#557EC0"
       height="100vh"
-      width="200px"
+      pl={2}
+      pr={4}
       py={4}
       position="fixed"
       left={0}
       top={0}
     >
       <VStack height="full" spacing={4} align="stretch">
-        <VStack spacing={1} align="stretch">
-          <SidebarItem icon={FiHome} href="/">Home</SidebarItem>
-          <SidebarItem icon={FiBook} href="/modules">Modules</SidebarItem>
-          <SidebarItem icon={FiMessageSquare} href="/chat">Chat</SidebarItem>
-          <SidebarItem icon={FiAlertCircle} href="/emergency">Emergency</SidebarItem>
+        <VStack spacing={1} align="stretch" fontWeight="semibold">
+          <SidebarItem icon={HomeRounded} href="/">Home</SidebarItem>
+          <SidebarItem icon={MenuBookRounded} href="/modules">Modules</SidebarItem>
+          <SidebarItem icon={ChatRounded} href="/chat">Chat</SidebarItem>
+          <SidebarItem icon={EmergencyRounded} href="/emergency">Emergency</SidebarItem>
         </VStack>
         <VStack spacing={1} align="stretch" mt="auto">
-          <SidebarItem icon={FiUser} href="/profile">Profile</SidebarItem>
-          <SidebarItem icon={FiSettings} href="/settings">Settings</SidebarItem>
-          <SidebarItem icon={FiLogOut} href="/logout">Logout</SidebarItem>
+          <SidebarItem icon={PersonRounded} href="/profile">Profile</SidebarItem>
+          <SidebarItem icon={SettingsRounded} href="/settings">Settings</SidebarItem>
+          <SidebarItem icon={LogoutRounded} href="/logout">Logout</SidebarItem>
         </VStack>
       </VStack>
     </Box>
