@@ -8,6 +8,9 @@ import LessonView from "./components/LessonView";
 import MessagePage from "./components/MessagePage";
 import FlashcardView from "./components/FlashcardView";
 import ModuleCompletion from "./components/ModuleCompletion";
+import Card from "./components/Card";
+import Button from "./components/Button";
+
 import DictionaryView from "./components/DictionaryView";
 
 function App() {
@@ -31,14 +34,16 @@ function App() {
   );
 }
 
-// Move your current App content to a new Dashboard component
 function Dashboard() {
   return (
-    <Box p={8}>
-      <Container maxW="container.xl">
-        <Heading mb={8}>Dashboard</Heading>
-
+    <Box my={10}>
+      <Container maxW="container.xl" >
         {/* Intro Section */}
+        <Box mb={8}>
+          <Heading>Welcome to Pediacademy!</Heading>
+          <Card title="Create your child's  Medical ID">Ensures quick access to your child’s condition, medication, and emergency contacts. Save it to their lock screen so it can be accessed without unlocking the phone. 
+            <Button>Start</Button>
+          </Card>
         <Box 
           bg="gray.100" 
           _dark={{ bg: "gray.700" }}
@@ -67,6 +72,7 @@ function Dashboard() {
 
         {/* Parent Training Section */}
         <Box mb={8}>
+          <Heading size="lg">Parent training</Heading>
           <Heading 
             size="lg" 
             mb={4}
@@ -76,14 +82,15 @@ function Dashboard() {
             Parent training
           </Heading>
           <SimpleGrid columns={3} spacing={4} gap="40px">
-            <ModuleCard title="Placeholder" />
-            <ModuleCard title="Placeholder" />
-            <ModuleCard title="Placeholder" />
+            <ModuleCard title="Placeholder">Placeholder description blah blah</ModuleCard>
+            <ModuleCard title="Placeholder">Placeholder description blah blah</ModuleCard>
+            <ModuleCard title="Placeholder">Placeholder description blah blah</ModuleCard>
           </SimpleGrid>
         </Box>
 
         {/* Child Training Section */}
         <Box mb={8}>
+          <Heading size="lg">Child training</Heading>
           <Heading 
             size="lg" 
             mb={4}
@@ -98,6 +105,7 @@ function Dashboard() {
                 key={module.id}
                 moduleId={module.id}
                 title={module.title}
+                description={module.description}
               />
             ))}
           </SimpleGrid>
