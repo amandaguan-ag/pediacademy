@@ -1,4 +1,4 @@
-import { Box, Container, VStack, Text, Button, Flex, Icon, HStack } from "@chakra-ui/react";
+import { Box, Container, VStack, Text, Button, Flex, Icon, HStack, Textarea } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FiStar, FiChevronLeft, FiChevronRight, FiMaximize, FiShuffle } from "react-icons/fi";
@@ -18,6 +18,51 @@ const flashcardData = {
       { term: 'Glucie', definition: 'Your friendly glucose helper who travels through your blood vessels' }
     ]
   }
+};
+
+// Add simple feedback collection
+const FeedbackWidget = () => {
+  const [rating, setRating] = useState(null);
+  const [feedback, setFeedback] = useState('');
+
+  const handleSubmit = () => {
+    // Simple analytics logging
+    console.log({
+      lessonId,
+      moduleId,
+      rating,
+      feedback,
+      timestamp: new Date(),
+    });
+    // Future: Send to backend
+  };
+
+  return (
+    <VStack spacing={4} mt={8} p={4} bg="gray.50" borderRadius="md">
+      <Text>How helpful was this lesson?</Text>
+      <HStack>
+        {[1, 2, 3, 4, 5].map((value) => (
+          <Button
+            key={value}
+            onClick={() => setRating(value)}
+            colorScheme={rating === value ? "blue" : "gray"}
+          >
+            {value}
+          </Button>
+        ))}
+      </HStack>
+      {rating && (
+        <>
+          <Textarea
+            placeholder="Any suggestions for improvement?"
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+          />
+          <Button onClick={handleSubmit}>Submit Feedback</Button>
+        </>
+      )}
+    </VStack>
+  );
 };
 
 export default function FlashcardView() {
@@ -66,9 +111,9 @@ export default function FlashcardView() {
             <Box
               flex="1"
               h="400px"
-              bg="white"
+              bg="gray.100"
+              _dark={{ bg: "gray.800" }}
               borderRadius="lg"
-              boxShadow="md"
               p={8}
               cursor="pointer"
               onClick={() => setIsFlipped(!isFlipped)}
@@ -100,7 +145,8 @@ export default function FlashcardView() {
                 <Text 
                   fontSize="xl" 
                   textAlign="center"
-                  bg="gray.100"
+                  color="gray.900"
+                  _dark={{ color: "gray.100" }}
                   p={8}
                   borderRadius="md"
                   flex="1"
@@ -139,6 +185,8 @@ export default function FlashcardView() {
               Fullscreen
             </Button>
           </HStack>
+
+          <FeedbackWidget />
         </VStack>
       </Container>
     </Box>

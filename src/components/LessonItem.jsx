@@ -12,13 +12,26 @@ export default function LessonItem({ lesson, moduleId }) {
     <Box 
       p={4}
       bg="white"
+      _dark={{ bg: "gray.800" }}
       borderRadius="md"
       boxShadow="sm"
     >
       <HStack justify="space-between" align="center">
         <Box>
-          <Text fontWeight="medium">{lesson.title}</Text>
-          <Text fontSize="sm" color="gray.600">{lesson.duration}</Text>
+          <Text 
+            fontWeight="medium"
+            color="gray.800"
+            _dark={{ color: "gray.100" }}
+          >
+            {lesson.title}
+          </Text>
+          <Text 
+            fontSize="sm" 
+            color="gray.600"
+            _dark={{ color: "gray.300" }}
+          >
+            {lesson.duration}
+          </Text>
         </Box>
         <Button
           onClick={handleStart}
