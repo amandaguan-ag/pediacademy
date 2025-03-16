@@ -8,12 +8,9 @@ import LessonView from "./components/LessonView";
 import MessagePage from "./components/MessagePage";
 import FlashcardView from "./components/FlashcardView";
 import ModuleCompletion from "./components/ModuleCompletion";
-<<<<<<< HEAD
 import Card from "./components/Card";
 import Button from "./components/Button";
-=======
 import DictionaryView from "./components/DictionaryView";
->>>>>>> 95a62ff (Add DictionaryView component and update routing in App)
 
 function App() {
   return (
